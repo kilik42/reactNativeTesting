@@ -3,6 +3,7 @@ import { Button, StyleSheet, Text, View,  TextInput } from 'react-native'
 import React, { useState } from 'react';
 import { db } from './firebase';
 import { useFocusEffect } from '@react-navigation/native';
+import { FlatList } from 'react-native';
 // import { TextInput } from 'react-native-gesture-handler'
 
 const Messages = () => {
@@ -45,7 +46,23 @@ const Messages = () => {
 
     }
     return (
+
+
         <View>
+             <FlatList 
+             
+                data ={messages}
+                renderItem ={({item, index})=>
+                    <Text> {item.data.message} </Text>
+
+                }         
+             
+             
+             />
+
+
+
+
             {/* <Text>Messages</Text> */}
             <TextInput 
             value={input } 
